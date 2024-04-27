@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 
 mongoose.connect("mongodb+srv://UTS:uts2024@uts.ccyqodk.mongodb.net/Dev2024E191?retryWrites=true&w=majority&appName=UTS")
 .then(() => console.log("Conectando a mongo"))
