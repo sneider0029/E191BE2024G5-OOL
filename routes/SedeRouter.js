@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Ubicacion = require("../models/Ubicacion");
 const Sede = require("../models/Sede");
-const Consultorio = require("../models/Consutorio");
+const Consultorio = require("../models/Consultorio");
 
 // Obtener todas las ubicaciones
 router.get("/ubicaciones", (req, res) => {
