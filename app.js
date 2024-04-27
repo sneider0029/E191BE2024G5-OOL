@@ -9,6 +9,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/sede", rutaSede)
 
+const PORT= process.env.PORT || 5000;
+app.listen(PORT);
+
 //mongoose.connect("mongodb+srv://UTS:uts2024@uts.ccyqodk.mongodb.net/Prueba2024E191?retryWrites=true&w=majority&appName=UTS")
 //.then(() => console.log("Conectando a mongo"))
 //.catch(error => console.log(error));
@@ -31,4 +34,3 @@ app.patch("/:id", (req, res) =>{
 });
 
 */
-app.listen(5000);
