@@ -20,7 +20,7 @@ const SedeSchema = new mongoose.Schema({
 
 
 // Model-Sedes
-module.exports = mongoose.model("Sede", SedeEsquema);
+module.exports = mongoose.model("Sede", SedeSchema);
 
 /*
 const mongoose = require('mongoose');
