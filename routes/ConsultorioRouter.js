@@ -12,6 +12,21 @@ router.get("/consultorios", (req, res) => {
         });
 })
 
+//GET codigo de consultorio
+router.get("/consultorios/:idConsultorio", (req, res) => {
+    Consultorio.find({ idConsultorio: req.params.idConsultorio })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ message: err });
+        });
+})
+
+//
+//
+//
+
 router.post("/consultorios", (req, res) => {
     const consultorio = new Consultorio({
         idConsultorio: req.body.idConsultorio,

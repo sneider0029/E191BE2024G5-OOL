@@ -13,6 +13,28 @@ router.get("/sedes", (req, res) => {
         });
 });
 
+//GET nombre de la sede
+router.get("/sedes/:nombreSede", (req, res) => {
+    Consultorio.find({ nombreSede: req.params.nombreSede })
+        .then((data) => {
+            res.json(data); 
+        })
+        .catch((err) => {
+            res.json({ message: err });
+        });
+})
+
+//GET id de la sede
+router.get("/sedes/:idSede", (req, res) => {
+    Consultorio.find({ idSede: req.params.idSede })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ message: err });
+        });
+})
+
 /*
     POST
 */

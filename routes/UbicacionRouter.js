@@ -12,6 +12,28 @@ router.get("/ubicaciones", (req, res) => {
         });
 });
 
+//GET id de la ubicacion
+router.get("/ubicaciones/:idUbicacion", (req, res) => {
+    Consultorio.find({ idUbicacion: req.params.idUbicacion })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ message: err });
+        });
+})
+
+//GET nombre de la ubicacion
+router.get("/ubicaciones/:nombreUbicacion", (req, res) => {
+    Consultorio.find({ nombreUbicacion: req.params.nombreUbicacion })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json({ message: err });
+        });
+})
+
 router.post("/ubicaciones", (req, res) => {
     const ubicacion = new Ubicacion({
         idUbicacion: req.body.idUbicacion,
