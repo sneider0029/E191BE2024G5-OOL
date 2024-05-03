@@ -14,7 +14,7 @@ router.get("/sedes", (req, res) => {
 });
 
 //GET nombre de la sede
-router.get("/sedes/:nombreSede", (req, res) => {
+router.get("/sedes/nombre/:nombreSede", (req, res) => {
     Consultorio.find({ nombreSede: req.params.nombreSede })
         .then((data) => {
             res.json(data); 
@@ -25,7 +25,7 @@ router.get("/sedes/:nombreSede", (req, res) => {
 })
 
 //GET id de la sede
-router.get("/sedes/:idSede", (req, res) => {
+router.get("/sedes/id/:idSede", (req, res) => {
     Consultorio.find({ idSede: req.params.idSede })
         .then((data) => {
             res.json(data);

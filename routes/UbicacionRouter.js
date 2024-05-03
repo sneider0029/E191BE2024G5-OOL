@@ -13,7 +13,7 @@ router.get("/ubicaciones", (req, res) => {
 });
 
 //GET id de la ubicacion
-router.get("/ubicaciones/:idUbicacion", (req, res) => {
+router.get("/ubicaciones/id/:idUbicacion", (req, res) => {
     Consultorio.find({ idUbicacion: req.params.idUbicacion })
         .then((data) => {
             res.json(data);
@@ -24,7 +24,7 @@ router.get("/ubicaciones/:idUbicacion", (req, res) => {
 })
 
 //GET nombre de la ubicacion
-router.get("/ubicaciones/:nombreUbicacion", (req, res) => {
+router.get("/ubicaciones/nombre/:nombreUbicacion", (req, res) => {
     Consultorio.find({ nombreUbicacion: req.params.nombreUbicacion })
         .then((data) => {
             res.json(data);
