@@ -15,7 +15,7 @@ router.get("/sedes", (req, res) => {
 
 //GET nombre de la sede
 router.get("/sedes/nombre/:nombreSede", (req, res) => {
-    Consultorio.find({ nombreSede: req.params.nombreSede })
+    Sede.find({ nombreSede: req.params.nombreSede })
         .then((data) => {
             res.json(data); 
         })
@@ -26,7 +26,7 @@ router.get("/sedes/nombre/:nombreSede", (req, res) => {
 
 //GET id de la sede
 router.get("/sedes/id/:idSede", (req, res) => {
-    Consultorio.find({ idSede: req.params.idSede })
+    Sede.find({ idSede: req.params.idSede })
         .then((data) => {
             res.json(data);
         })
