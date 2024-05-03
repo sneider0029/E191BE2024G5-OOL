@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Sede = require("../models/Sede");
+const Ubicacion = require("../models/Ubicacion");
 
-// Obtener todas las ubicaciones
-router.get("/sedes", (req, res) => {
-    Sede.find()
+router.get("/ubicaciones", (req, res) => {
+    Ubicacion.find()
         .then((data) => {
             res.json(data);
         })
@@ -13,18 +12,14 @@ router.get("/sedes", (req, res) => {
         });
 });
 
-/*
-    POST
-*/
-
-router.post("/sedes", (req, res) => {
-    const sede = new Sede({
-        idSede: req.body.idSede,
-        nombreSede: req.body.nombreSede,
-        direccionSede: req.body.direccionSede,
+router.post("/ubicaciones", (req, res) => {
+    const ubicacion = new Ubicacion({
+        idUbicacion: req.body.idUbicacion,
+        nombreUbicacion: req.body.nombreUbicacion,
+        codigoUbicacion: req.body.codigoUbicacion
     });
 
-    sede
+    ubicacion
         .save()
         .then((data) => {
             res.json(data);
@@ -34,13 +29,8 @@ router.post("/sedes", (req, res) => {
         });
 });
 
-
-/*
-DELETE
-*/
-
-router.delete("/sedes/:id", (req, res) => {
-    Sede.deleteOne({ _id: req.params.id })
+router.delete("/ubicaciones/:id", (req, res) => {
+    Ubicacion.deleteOne({ _id: req.params.id })
         .then((data) => {
             res.json(data);
         })
@@ -49,18 +39,14 @@ router.delete("/sedes/:id", (req, res) => {
         });
 });
 
-/*
-PATCHS
-*/
-
-router.patch("/sedes/:id", (req, res) => {
-    Sede.updateOne(
+router.patch("/ubicaciones/:id", (req, res) => {
+    Ubicacion.updateOne(
         { _id: req.params.id },
         {
             $set: {
-                idSede: req.body.idSede,
-                nombreSede: req.body.nombreSede,
-                direccionSede: req.body.direccionSede,
+                idUbicacion: req.body.idUbicacion,
+                nombreUbicacion: req.body.nombreUbicacion,
+                codigoUbicacion: req.body.codigoUbicacion
             },
         }
     ).then((data) => {
