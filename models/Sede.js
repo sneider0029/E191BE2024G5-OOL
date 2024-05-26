@@ -5,8 +5,7 @@ const mongoose = require("../conexionBD/conexionBD");
 const SedeSchema = new mongoose.Schema({
     idSede: { type: Number, required: true },
     nombreSede: { type: String, required: true },
-    direccionSede: { type: String, required: true },
-    consultorios: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Consultorio' }] // Ref-Consultorios
+    direccionSede: { type: String, required: true }
 });
 
 // Model-Sedes
