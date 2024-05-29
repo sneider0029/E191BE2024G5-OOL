@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Ubicacion = require("../models/Ubicacion");
+const Sede = require("../models/Sede")
 
 router.get("/ubicaciones", (req, res) => {
     Ubicacion.find()
+    .populate('sedes')
         .then((data) => {
             res.json(data);
         })
@@ -15,6 +17,7 @@ router.get("/ubicaciones", (req, res) => {
 //GET id de la ubicacion
 router.get("/ubicaciones/id/:idUbicacion", (req, res) => {
     Ubicacion.find({ idUbicacion: req.params.idUbicacion })
+    .populate('sedes')
         .then((data) => {
             res.json(data);
         })
@@ -26,6 +29,7 @@ router.get("/ubicaciones/id/:idUbicacion", (req, res) => {
 //GET nombre de la ubicacion
 router.get("/ubicaciones/nombre/:nombreUbicacion", (req, res) => {
     Ubicacion.find({ nombreUbicacion: req.params.nombreUbicacion })
+    .populate('sedes')
         .then((data) => {
             res.json(data);
         })
@@ -38,7 +42,8 @@ router.post("/ubicaciones", (req, res) => {
     const ubicacion = new Ubicacion({
         idUbicacion: req.body.idUbicacion,
         nombreUbicacion: req.body.nombreUbicacion,
-        codigoUbicacion: req.body.codigoUbicacion
+        codigoUbicacion: req.body.codigoUbicacion,
+        sedes: req.body.sedes
     });
 
     ubicacion
@@ -68,7 +73,8 @@ router.patch("/ubicaciones/:id", (req, res) => {
             $set: {
                 idUbicacion: req.body.idUbicacion,
                 nombreUbicacion: req.body.nombreUbicacion,
-                codigoUbicacion: req.body.codigoUbicacion
+                codigoUbicacion: req.body.codigoUbicacion,
+                sedes: req.body.sedes
             },
         }
     ).then((data) => {

@@ -1,13 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Sede = require("../models/Sede"); 
-const Ubicacion = require("../models/Ubicacion")
 const Consultorio = require("../models/Consultorio")
 
 // Obtener todas las ubicaciones
 router.get("/sedes", (req, res) => {
     Sede.find()
-    .populate('ubicacion')
     .populate('consultorios')
         .then((data) => {
             res.json(data);
@@ -48,7 +46,6 @@ router.post("/sedes", (req, res) => {
         idSede: req.body.idSede,
         nombreSede: req.body.nombreSede,
         direccionSede: req.body.direccionSede,
-        ubicacion: req.body.ubicacion,
         consultorios: req.body.consultorios
     });
 
@@ -89,7 +86,6 @@ router.patch("/sedes/:id", (req, res) => {
                 idSede: req.body.idSede,
                 nombreSede: req.body.nombreSede,
                 direccionSede: req.body.direccionSede,
-                ubicacion: req.body.ubicacion,
                 consultorios: req.body.consultorios
             },
         }
