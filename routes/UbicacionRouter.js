@@ -43,6 +43,8 @@ router.post("/ubicaciones", (req, res) => {
         idUbicacion: req.body.idUbicacion,
         nombreUbicacion: req.body.nombreUbicacion,
         codigoUbicacion: req.body.codigoUbicacion,
+        departamentoUbicacion: req.body.departamentoUbicacion,
+        municipioUbicacionUbicacion: req.body.municipioUbicacionUbicacion,
         sedes: req.body.sedes
     });
 
@@ -74,6 +76,8 @@ router.patch("/ubicaciones/:id", (req, res) => {
                 idUbicacion: req.body.idUbicacion,
                 nombreUbicacion: req.body.nombreUbicacion,
                 codigoUbicacion: req.body.codigoUbicacion,
+                departamentoUbicacion: req.body.departamentoUbicacion,
+                municipioUbicacion: req.body.municipioUbicacion,
                 sedes: req.body.sedes
             },
         }
